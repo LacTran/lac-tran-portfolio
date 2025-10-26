@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({ name: '', email: '', message: '' });
@@ -70,10 +70,14 @@ const ContactForm = () => {
         throw new Error('Something went wrong. Please try again later.');
       }
 
-      setSubmitStatus({ type: 'success', message: 'Thank you for your message! I\'ll get back to you soon.' });
+      setSubmitStatus({ type: 'success', message: 'Thank you for your message! I&apos;ll get back to you soon.' });
       setFormData({ name: '', email: '', message: '' });
-    } catch (error: any) {
-      setSubmitStatus({ type: 'error', message: error.message || 'An unexpected error occurred.' });
+    } catch (error) {
+      let errorMessage = 'An unexpected error occurred.';
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      setSubmitStatus({ type: 'error', message: errorMessage });
     } finally {
       setIsSubmitting(false);
     }

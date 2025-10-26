@@ -10,10 +10,6 @@ import Experience from "@/components/portfolio/Experience";
 import Contact from "@/components/portfolio/Contact";
 import Footer from "@/components/portfolio/Footer";
 
-interface PortfolioProps {
-  onScrollToSection: (sectionId: string) => void;
-}
-
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
