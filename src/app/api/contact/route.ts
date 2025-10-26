@@ -2,11 +2,14 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const toEmail = process.env.TO_EMAIL;
-
 export async function POST(request: Request) {
   try {
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const toEmail = process.env.TO_EMAIL;
+
+    if (!resendApiKey) {
+      throw new Error('Resend API key is not configured.');
+    }
     if (!toEmail) {
       throw new Error('Recipient email is not configured.');
     }
@@ -16,6 +19,8 @@ export async function POST(request: Request) {
     if (!name || !email || !message) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
+
+    const resend = new Resend(resendApiKey);
 
     await resend.emails.send({
       from: 'Portfolio Contact Form <onboarding@resend.dev>', // Must be from a verified domain on Resend
