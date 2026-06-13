@@ -1,6 +1,7 @@
 // src/components/portfolio/ProjectCard.tsx
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface ProjectCardProps {
@@ -9,7 +10,12 @@ interface ProjectCardProps {
   image: string;
   alt: string;
   details: string;
-  buttons: { label: string; variant: "default" | "outline" | "ghost" | "destructive" | "link"; size: "default" | "sm" | "lg" | "icon" }[];
+  buttons: { 
+    label: string; 
+    href: string;
+    variant: "default" | "outline" | "ghost" | "destructive" | "link"; 
+    size: "default" | "sm" | "lg" | "icon" 
+  }[];
 }
 
 const ProjectCard = ({ title, description, image, alt, details, buttons }: ProjectCardProps) => {
@@ -28,11 +34,13 @@ const ProjectCard = ({ title, description, image, alt, details, buttons }: Proje
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <p className="mb-4">{details}</p>
+        <p className="mb-4 text-sm text-muted-foreground">{details}</p>
         <div className="flex space-x-2">
           {buttons.map((btn, index) => (
-            <Button key={index} variant={btn.variant} size={btn.size}>
-              {btn.label}
+            <Button key={index} variant={btn.variant} size={btn.size} asChild>
+              <Link href={btn.href} target={btn.href.startsWith("http") ? "_blank" : undefined}>
+                {btn.label}
+              </Link>
             </Button>
           ))}
         </div>

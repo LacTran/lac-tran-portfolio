@@ -4,14 +4,13 @@ import ProjectCard from "./ProjectCard";
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with real-time inventory management",
-      image: "https://picsum.photos/seed/project-1/400/300",
-      alt: "Modern e-commerce platform dashboard showing analytics and product management interface",
-      details: "Built with React, Node.js, and MongoDB. Features include payment processing, user authentication, and admin dashboard.",
+      title: "Calendar AI Agent",
+      description: "No-code AI agent for automated calendar management and scheduling",
+      image: "/projects/cover-ai-agent-nocode.png",
+      alt: "Calendar AI Agent project thumbnail showing scheduling automation",
+      details: "An intelligent agent built to streamline scheduling tasks, integrating with calendar APIs to automate appointment bookings and reminders without writing code.",
       buttons: [
-        { label: "Live Demo", variant: "outline" as const, size: "sm" as const },
-        { label: "GitHub", variant: "outline" as const, size: "sm" as const }
+        { label: "View Project", href: "https://learn.nextwork.org/lac-tran-calendar-ai-agent/docs/ai-agent-nocode", variant: "outline" as const, size: "sm" as const }
       ]
     },
     {
@@ -20,7 +19,7 @@ const Projects = () => {
       image: "https://picsum.photos/seed/project-2/400/300",
       alt: "Healthcare analytics dashboard displaying various charts, graphs and patient statistics",
       details: "Interactive dashboard for healthcare data analysis using D3.js, Python backend, and complex data processing algorithms.",
-      buttons: [{ label: "Case Study", variant: "outline" as const, size: "sm" as const }]
+      buttons: [{ label: "Case Study", href: "#", variant: "outline" as const, size: "sm" as const }]
     },
     {
       title: "Task Management App",
@@ -29,8 +28,8 @@ const Projects = () => {
       alt: "Clean mobile app interface for task management with intuitive user experience",
       details: "React Native application with offline capability, cloud sync, and intuitive UX design for personal and team productivity.",
       buttons: [
-        { label: "App Store", variant: "outline" as const, size: "sm" as const },
-        { label: "GitHub", variant: "outline" as const, size: "sm" as const }
+        { label: "App Store", href: "#", variant: "outline" as const, size: "sm" as const },
+        { label: "GitHub", href: "#", variant: "outline" as const, size: "sm" as const }
       ]
     }
   ];
